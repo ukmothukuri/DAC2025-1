@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>ServletsOne</display-name>
+  <welcome-file-list>
+    <welcome-file>Home.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>UserRegistration</display-name>
+    <servlet-name>UserRegistration</servlet-name>
+    <servlet-class>in.dac.controllers.UserRegistration</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserRegistration</servlet-name>
+    <url-pattern>/UserRegistration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserAuthentication</display-name>
+    <servlet-name>UserAuthentication</servlet-name>
+    <servlet-class>in.dac.controllers.UserAuthentication</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAuthentication</servlet-name>
+    <url-pattern>/UserAuthentication</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Welcome</display-name>
+    <servlet-name>Welcome</servlet-name>
+    <servlet-class>in.dac.controllers.Welcome</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Welcome</servlet-name>
+    <url-pattern>/Welcome</url-pattern>
+  </servlet-mapping>
+</web-app>
