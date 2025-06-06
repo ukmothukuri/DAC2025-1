@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -45,9 +47,12 @@ public class UserAuthentication extends HttpServlet {
 			
 			if(status)
 			{
+				// Session Creation
+				HttpSession session = request.getSession(true);
+				session.setAttribute("usemail", user.getUseremail());
+				
 				RequestDispatcher dispatch = request.getRequestDispatcher("Welcome");			
-				request.setAttribute("Role", "user");
-							
+				request.setAttribute("Role", "user");							
 				dispatch.forward(request, response);			
 			}else {
 				response.sendRedirect("InvalidDetails.html");

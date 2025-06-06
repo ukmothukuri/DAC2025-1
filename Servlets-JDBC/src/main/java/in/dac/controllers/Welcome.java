@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,12 +20,18 @@ public class Welcome extends HttpServlet {
 		
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html");
-		
-		System.out.println("====>"+request.getParameter("useremail"));
-		useremail = request.getParameter("useremail");
+		response.setContentType("text/html");		
 		PrintWriter out = response.getWriter();
 		out.print("Welcome "+useremail);
+		
+		HttpSession session = request.getSession(false);
+		if(session == null) {
+			out.println("Session expired. Please login");
+		}else{
+			useremail = (String)session.getAttribute("usemail");
+		}
+				//useremail = request.getParameter("useremail");
+		
 		
 		role = (String)request.getAttribute("Role");
 		
