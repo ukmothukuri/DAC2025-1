@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd" >
+
+	<bean id="std" class="in.dac.Student" autowire="byName">
+		<property name="name" value="Kumar"></property>
+		<property name="email" value="kumar@cdac.in"></property>
+		<!-- setterbased  <property name="ads" ref="ads"></property> -->
+		<!-- constructorbased <constructor-arg ref="ads">
+			
+		</constructor-arg>
+		-->			
+	</bean>
+	
+	<bean id="ads" class="in.dac.Address">
+	</bean>
+	
+</beans>
